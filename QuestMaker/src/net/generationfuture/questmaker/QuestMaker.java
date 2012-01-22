@@ -21,9 +21,14 @@ public class QuestMaker extends BasicGame {
     
     int menu_x = 200;
     int menu_y = 100;
-    
     int menu_width = 200;
     int menu_height = 40;
+    
+    public double version = 1.0;
+    public String version_ = "1.0";
+    
+    public String app_name = "QuestMaker 1.0";
+    public String webseite = "http://generation-future.net/phpBB3";
     
     public QuestMaker () throws SlickException {
         super("GFGame-QuestMaker");
@@ -42,7 +47,7 @@ public class QuestMaker extends BasicGame {
         gc.getInput().addMouseListener(new AppMouseListener(this));
         
         menu_names = new String[10][4];
-        questfile = new QuestFile();
+        questfile = new QuestFile(this);
         
         menu_names[0][0] = "Neuen Quest";
         menu_names[1][0] = "Quest laden";
