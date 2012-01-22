@@ -14,7 +14,10 @@ build/
 
 # don't commit cache
 QuestMaker/Cache/*.bmp
-QuestMaker/Cahce/*.ini
+QuestMaker/Cache/*.ini
+
+#QuestMaker/Cache/src/*.java
+#QuestMaker/Cache/build/*.class
 
 # No VIM swap files
 *.swp
