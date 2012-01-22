@@ -9,8 +9,8 @@ desktop.ini
 .directory
 
 # don't commit users specific files
-private/
-build/
+QuestMaker/private/
+QuestMaker/build/
 
 # don't commit cache
 QuestMaker/Cache/*.bmp
