@@ -31,6 +31,7 @@ public class QuestMaker extends BasicGame {
     public String webseite = "http://generation-future.net/phpBB3";
     
     private Image bg_image;
+    private Config config;
     
     public QuestMaker () throws SlickException {
         super("GFGame-QuestMaker");
@@ -47,6 +48,8 @@ public class QuestMaker extends BasicGame {
     public void init(GameContainer gc) throws SlickException {
         start_image = new Image("Data/images/start_image.png");
         gc.getInput().addMouseListener(new AppMouseListener(this));
+        
+        config = new Config("Data/Config/Config.ini");
         
         menu_names = new String[10][4];
         questfile = new QuestFile(this);
