@@ -53,6 +53,11 @@ public class QuestMaker extends BasicGame {
         menu_names[1][0] = "Quest laden";
         menu_names[0][2] = "newQuest";//MouseCommand
         menu_names[1][2] = "loadQuest";
+        
+        menu_names[2][0] = "Quest speichern";
+        menu_names[2][2] = "saveQuest";
+        menu_names[3][0] = "Quest complieren";//MouseCommand
+        menu_names[3][2] = "compileQuest";
     }
 
     @Override
@@ -154,7 +159,15 @@ public class QuestMaker extends BasicGame {
     }
     
     public void actionPerformed (String command) {
+        
         System.out.println("actionPerformed: " + command);
+        
+        if ("compileQuest".equals(command)) {
+            questfile.compile();
+        } else if ("newQuest".equals(command)) {
+            questfile.newQuest();
+        }
+        
     }
     
     class AppMouseListener implements MouseListener {
