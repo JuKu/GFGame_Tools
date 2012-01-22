@@ -19,7 +19,7 @@ public class QuestMaker extends BasicGame {
     Boolean menu_isShown = false;
     String menu_names[][];
     
-    int menu_x = 200;
+    int menu_x = 10;//200;
     int menu_y = 100;
     int menu_width = 200;
     int menu_height = 40;
@@ -29,6 +29,8 @@ public class QuestMaker extends BasicGame {
     
     public String app_name = "QuestMaker 1.0";
     public String webseite = "http://generation-future.net/phpBB3";
+    
+    private Image bg_image;
     
     public QuestMaker () throws SlickException {
         super("GFGame-QuestMaker");
@@ -58,6 +60,8 @@ public class QuestMaker extends BasicGame {
         menu_names[2][2] = "saveQuest";
         menu_names[3][0] = "Quest complieren";//MouseCommand
         menu_names[3][2] = "compileQuest";
+        
+        bg_image = new Image("Data/images/bg_image_2.png");
     }
 
     @Override
@@ -67,6 +71,8 @@ public class QuestMaker extends BasicGame {
 
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
+        
+        bg_image.draw(1, 1);
         
         if (!start) {
             app.setDisplayMode(600, 400, false);

@@ -1,19 +1,31 @@
 package net.generationfuture.questmaker;
 
+import java.io.File;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import org.newdawn.slick.Image;
 
 public class QuestFile {
     
     private String name = "";
     private QuestMaker questmaker;
+    private String quest_image_path = "";
+    private Image quest_image = null;
+    
+    private String quest_name = "";
+    private String mouseOver_text = "";
+    private int isUserQuest = 1;
+    private int isFreakQuest = 1;
+    
+    private String build_path = "build/";
     
     public QuestFile (QuestMaker questmaker) {
         this.questmaker = questmaker;
     }
     
     public void newQuest () {
-        //
+        this.name = JOptionPane.showInputDialog(new JLabel("Bitte Quest-Name (zum speichern) eingeben:"));
+        this.quest_name = JOptionPane.showInputDialog(new JLabel("Bitte den Quest-Namen eingeben, der im Game angezeigt wird:"));
     }
     
     public void setName (String name) {
@@ -27,12 +39,28 @@ public class QuestFile {
     public void compile () {
         
         if (name != null && !"".equals(name)) {
+            
+        File file = new File("Data/Saves/" + name + "/");
+        
+        if (!file.exists()) {
+            file.mkdir();
+        }
         
         INIDatei inidatei = new INIDatei("Data/Saves/" + name + ".ini");
+        
         inidatei.setzeString("QuestMaker", "app_name", questmaker.app_name);
         inidatei.setzeString("QuestMaker", "webseite", questmaker.webseite);
         inidatei.setzeDouble("QuestMaker", "version", questmaker.version);
         inidatei.setzeString("QuestMaker", "version_", questmaker.version_);
+        
+        inidatei.setzeString("Quest", "name", this.quest_name);
+        inidatei.setzeString("Quest", "mouseOver_text", this.mouseOver_text);
+        inidatei.setzeInteger("Quest", "isUserQuest", this.isUserQuest);
+        inidatei.setzeInteger("Quest", "isFreakQuest", this.isFreakQuest);
+        
+        inidatei.setzeString("Images", "quest_image", this.quest_image_path);
+        
+        inidatei.setzeString("build", "path", this.build_path);
         
         inidatei.schreibeINIDatei("Data/Saves/" + name + ".ini", true);
         
