@@ -14,6 +14,8 @@ QuestMaker/build/
 private/
 build/
 
+QuestMaker/nbproject/private/
+
 # don't commit cache
 QuestMaker/Cache/*.bmp
 QuestMaker/Cache/*.ini
