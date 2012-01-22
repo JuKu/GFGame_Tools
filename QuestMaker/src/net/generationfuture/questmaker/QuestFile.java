@@ -36,7 +36,13 @@ public class QuestFile {
         //
     }
     
+    public void saveQuest () {
+        //
+    }
+    
     public void compile () {
+        
+        //
         
         if (name != null && !"".equals(name)) {
             
