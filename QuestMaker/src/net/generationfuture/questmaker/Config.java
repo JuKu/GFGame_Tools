@@ -19,6 +19,7 @@ public class Config {
     private String configFolder = "Data/Config";
     
     private int firstRun = 1;
+    public String quest_image_folder = "GameData/Cache/Quests";
     
     public String build_cmd = "javac ";
     public String build_path = "Cache/src";

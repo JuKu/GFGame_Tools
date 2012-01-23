@@ -20,6 +20,9 @@ QuestMaker/nbproject/private/
 QuestMaker/Cache/*.bmp
 QuestMaker/Cache/*.ini
 
+QuestMaker/Cache/src/*.jar
+QuestMaker/Cache/src/*.class
+
 #QuestMaker/Cache/src/*.java
 #QuestMaker/Cache/build/*.class
 

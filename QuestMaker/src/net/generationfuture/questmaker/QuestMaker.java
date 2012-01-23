@@ -1,5 +1,6 @@
 package net.generationfuture.questmaker;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -147,7 +148,7 @@ public class QuestMaker extends BasicGame {
         
     }
     
-    public void Menu_isMouseClicked (int mouse_x, int mouse_y) {
+    public void Menu_isMouseClicked (int mouse_x, int mouse_y) throws IOException {
         
         for (int i = 0; i < menu_names.length; i++) {
             
@@ -167,7 +168,7 @@ public class QuestMaker extends BasicGame {
         
     }
     
-    public void actionPerformed (String command) {
+    public void actionPerformed (String command) throws IOException {
         
         System.out.println("actionPerformed: " + command);
         
@@ -210,7 +211,11 @@ public class QuestMaker extends BasicGame {
             } else {
                 
                 if (questmaker.menu_isShown) {
-                    questmaker.Menu_isMouseClicked(i1, i2);
+                    try {
+                        questmaker.Menu_isMouseClicked(i1, i2);
+                    } catch (IOException ex) {
+                        Logger.getLogger(QuestMaker.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 
             }
