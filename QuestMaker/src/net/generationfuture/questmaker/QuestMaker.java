@@ -31,7 +31,7 @@ public class QuestMaker extends BasicGame {
     public String webseite = "http://generation-future.net/phpBB3";
     
     private Image bg_image;
-    private Config config;
+    public Config config;
     
     public QuestMaker () throws SlickException {
         super("GFGame-QuestMaker");
@@ -52,7 +52,7 @@ public class QuestMaker extends BasicGame {
         config = new Config("Data/Config/Config.ini");
         
         menu_names = new String[10][4];
-        questfile = new QuestFile(this);
+        questfile = new QuestFile(this, config);
         
         menu_names[0][0] = "Neuen Quest";
         menu_names[1][0] = "Quest laden";

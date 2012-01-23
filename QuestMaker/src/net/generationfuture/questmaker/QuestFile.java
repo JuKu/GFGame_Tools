@@ -7,6 +7,8 @@ import org.newdawn.slick.Image;
 
 public class QuestFile {
     
+    private Config config;
+    
     private String name = "";
     private QuestMaker questmaker;
     private String quest_image_path = "";
@@ -19,8 +21,9 @@ public class QuestFile {
     
     private String build_path = "build/";
     
-    public QuestFile (QuestMaker questmaker) {
+    public QuestFile (QuestMaker questmaker, Config config) {
         this.questmaker = questmaker;
+        this.config = config;
     }
     
     public void newQuest () {
@@ -30,6 +33,16 @@ public class QuestFile {
     
     public void setName (String name) {
         this.name = name;
+    }
+    
+    public void checkFileSystem () {
+        
+        File ordner = new File(config.outputFolder + "");
+        
+        if (!ordner.exists()) {
+            ordner.mkdirs();
+        }
+        
     }
     
     public void loadQuest (String name) {
@@ -42,7 +55,7 @@ public class QuestFile {
     
     public void compile () {
         
-        //
+        checkFileSystem();
         
         if (name != null && !"".equals(name)) {
             
@@ -52,12 +65,12 @@ public class QuestFile {
             file.mkdir();
         }
         
-        INIDatei inidatei = new INIDatei("Data/Saves/" + name + ".ini");
-        
-        inidatei.setzeString("QuestMaker", "app_name", questmaker.app_name);
-        inidatei.setzeString("QuestMaker", "webseite", questmaker.webseite);
-        inidatei.setzeDouble("QuestMaker", "version", questmaker.version);
-        inidatei.setzeString("QuestMaker", "version_", questmaker.version_);
+        INIDatei inidatei = new INIDatei("Data/Saves/" + name + ".ini");//System.out.println("app_name: " + this.config.getAppName());
+        //
+        inidatei.setzeString("QuestMaker", "app_name", config.app_name);
+        inidatei.setzeString("QuestMaker", "webseite", config.webseite);
+        inidatei.setzeDouble("QuestMaker", "version", config.version);
+        inidatei.setzeString("QuestMaker", "version_", config.version_);
         
         inidatei.setzeString("Quest", "name", this.quest_name);
         inidatei.setzeString("Quest", "mouseOver_text", this.mouseOver_text);
