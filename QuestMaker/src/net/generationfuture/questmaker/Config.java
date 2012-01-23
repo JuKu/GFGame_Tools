@@ -78,6 +78,10 @@ public class Config {
         return this.app_name;
     }
     
+    public String getCachePath () {
+        return this.cache_path;
+    }
+    
     public Boolean getFirstRun () {
         
         if (this.firstRun == 1) {//Anwendung wurde noch nicht ausgeführt.
@@ -101,10 +105,6 @@ public class Config {
         
         inidatei.schreibeINIDatei(configFolder + "/FirstRun.ini", true);
         
-    }
-    
-    public String getCachePath () {
-        return this.cache_path;
     }
     
     public int isDebugModus () {

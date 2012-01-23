@@ -37,7 +37,25 @@ public class QuestFile {
     
     public void checkFileSystem () {
         
-        File ordner = new File(config.outputFolder + "");
+        File ordner = new File(config.outputFolder + "/");
+        
+        if (!ordner.exists()) {
+            ordner.mkdirs();
+        }
+        
+        ordner = new File(config.getCachePath());
+        
+        if (!ordner.exists()) {
+            ordner.mkdirs();
+        }
+        
+        ordner = new File(config.getCachePath() + "/src");
+        
+        if (!ordner.exists()) {
+            ordner.mkdirs();
+        }
+        
+        ordner = new File(config.getCachePath() + "/build");
         
         if (!ordner.exists()) {
             ordner.mkdirs();
