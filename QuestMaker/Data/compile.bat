@@ -1,4 +1,4 @@
-javac ../Cache/src/Quest.java
-java ../Cache/src/Quest
-
+cd ..
+cd Cache/
+compile.bat
 pause
