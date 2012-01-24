@@ -15,6 +15,7 @@ private/
 build/
 
 QuestMaker/nbproject/private/
+QuestMaker/dist/Data/*
 
 # don't commit cache
 QuestMaker/Cache/*.bmp
