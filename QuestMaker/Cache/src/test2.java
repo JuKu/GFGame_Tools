@@ -1,5 +1,8 @@
 //QuestMaker 1.0 Version: 1.0
 
+//import net.generationfuture.game.Items;
+//import net.generationfuture.game.Player;
+//import net.generationfuture.game.Quest;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
